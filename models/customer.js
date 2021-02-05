@@ -1,59 +1,21 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://root:password@localhost/customers?authSource=admin", {
+//Connect db
+mongoose.connect(
+  "mongodb://root:password@localhost/customers?authSource=admin",
+  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-});
+  }
+);
 
-//Schemma - describe the data
+//Schema - describe the data
 const entrySchema = mongoose.Schema({
-    name: String
+  cust_number: Number,
+  name: String,
+  email_address: String,
+  phone: Number,
+  address: String,
 });
 
-
-
-module.exports = mongoose.model('Customer', entrySchema);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//     description: {
-//         type: String,
-//         required: true
-//     },
-//     date: {
-//         type: Date,
-//         default: Date.now
-//     }
-// });
-// mongoose.Schema({
-//     username: String,
-//     password: String
-// });
+module.exports = mongoose.model("Customer", entrySchema);
